@@ -2,7 +2,7 @@ kind: Gateway
 apiVersion: gateway.networking.k8s.io/v1beta1
 metadata:
   name: team-whereami
-  namespace: whereami-frontend
+  namespace: team-whereami
   annotations:
     networking.gke.io/certmap: whereami-cert-map
 spec:
