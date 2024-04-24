@@ -1,7 +1,7 @@
 export WORKDIR=`pwd`
 PROJECT_NUMBER=$(gcloud projects describe ${PROJECT_ID} --format="value(projectNumber)")
 
-kubectl apply - -f <<EOF
+kubectl apply -f - <<EOF
 apiVersion: v1
 data:
   server.insecure: "true"
@@ -57,6 +57,17 @@ metadata:
 spec:
   redirectToHttps:
     enabled: true
+EOF
+
+kubectl apply -f - <<EOF
+apiVersion: networking.gke.io/v1
+kind: ManagedCertificate
+metadata:
+  name: argocd-example-cert
+  namespace: argocd
+spec:
+  domains:
+    - argocd.example.com
 EOF
 
 gcloud compute addresses create argocd-ingress-ip --project ${PROJECT_ID}  --global --ip-version IPV4 
