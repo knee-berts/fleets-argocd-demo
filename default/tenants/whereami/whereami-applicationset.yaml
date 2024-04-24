@@ -1,0 +1,36 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: whereami-frontend-applicationset
+  namespace: argocd
+spec:
+  generators:
+  - plugin:
+      # Specify the configMap where the plugin configuration is located.
+      configMapRef:
+        name: fleet-plugin
+      input:
+        parameters:
+          fleetProjectNumber: "143611928672"
+          scopeID: "team-whereami"
+      # The ApplicationSet controller polls the plugin every `requeueAfterSeconds` interval to detect changes.
+      requeueAfterSeconds: 10
+  template:
+    metadata:
+      name: '{{name}}-whereamifrontend' 
+    spec:
+      project: default
+      source:
+        # A source repo and path that the "frontend" team has write access to. 
+        repoURL: https://github.com/knee-berts/fleets-argocd-demo
+        targetRevision: HEAD
+        path: teams/whereami/frontend
+      destination:
+        server: '{{server}}'
+        # Only syncing to the "webserver" fleet namespace.
+        namespace: whereami-frontend
+  syncPolicy:
+    # Allow the controller to create-modify-delete Applications. Other modes are like create-only. 
+    applicationsSync: sync
+    # The controller will delete Applications when the ApplicationSet is deleted.
+    preserveResourcesOnDeletion: false

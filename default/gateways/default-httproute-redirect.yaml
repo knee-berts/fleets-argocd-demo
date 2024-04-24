@@ -4,12 +4,12 @@ metadata:
   name: http-to-https-redirect-whereami-frontend
   namespace: whereami-frontend
   labels: 
-    gateway: team-whereami
+    gateway: whereami-frontend
 spec:
   parentRefs:
   - kind: Gateway
-    name: team-whereami
-    namespace: team-whereami
+    name: whereami-frontend
+    namespace: whereami-frontend
     sectionName: http
   rules:
   - filters:

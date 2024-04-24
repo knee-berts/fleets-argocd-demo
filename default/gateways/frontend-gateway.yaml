@@ -1,8 +1,8 @@
 kind: Gateway
 apiVersion: gateway.networking.k8s.io/v1beta1
 metadata:
-  name: team-whereami
-  namespace: team-whereami
+  name: whereami-frontend
+  namespace: whereami-frontend
   annotations:
     networking.gke.io/certmap: whereami-cert-map
 spec:
@@ -15,11 +15,11 @@ spec:
     protocol: HTTPS
     port: 443
     allowedRoutes:
-      namespaces:
-        from: Selector
-        selector:
-          matchLabels:
-            team-whereami-gateway-access: "true"      
+      # namespaces:
+      #   from: Selector
+      #   selector:
+      #     matchLabels:
+      #       team-whereami-gateway-access: "true"      
       kinds:
       - kind: HTTPRoute
   addresses:

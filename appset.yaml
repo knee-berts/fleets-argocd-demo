@@ -1,0 +1,37 @@
+
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: webserver-applicationset
+  namespace: argocd
+spec:
+  generators:
+  - plugin:
+      # Specify the configMap where the plugin configuration is located.
+      configMapRef:
+        name: fleet-plugin
+      input:
+        parameters:
+          fleetProjectNumber: "264940460634"
+          scopeID: "frontend"
+      # The ApplicationSet controller polls the plugin every `requeueAfterSeconds` interval to detect changes.
+      requeueAfterSeconds: 10
+  template:
+    metadata:
+      name: '{{name}}-webserver' 
+    spec:
+      project: default
+      source:
+        # A source repo and path that the "frontend" team has write access to. 
+        repoURL: https://github.com/shumiao/gke-fleet-examples
+        targetRevision: HEAD
+        path: fleet-and-argocd/webserver-application/manifests
+      destination:
+        server: '{{server}}'
+        # Only syncing to the "webserver" fleet namespace.
+        namespace: webserver
+  syncPolicy:
+    # Allow the controller to create-modify-delete Applications. Other modes are like create-only. 
+    applicationsSync: sync
+    # The controller will delete Applications when the ApplicationSet is deleted.
+    preserveResourcesOnDeletion: false

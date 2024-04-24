@@ -4,12 +4,12 @@ metadata:
   name: whereami-frontend
   namespace: whereami-frontend
   labels: 
-    gateway: team-whereami
+    gateway: whereami-frontend
 spec:
   parentRefs:
   - kind: Gateway
-    name: team-whereami
-    namespace: team-whereami
+    name: whereami-frontend
+    namespace: whereami-frontend
     sectionName: https
   hostnames:
   - "frontend.endpoints.fleets-argocd-demo.cloud.goog"
@@ -18,4 +18,5 @@ spec:
     - group: net.gke.io
       kind: ServiceImport
       name: whereami-frontend
+      namespace: whereami-frontend
       port: 8080
