@@ -1,0 +1,18 @@
+apiVersion: networking.gke.io/v1
+kind: HealthCheckPolicy
+metadata:
+  name: whereami-frontend-healthcheck
+  namespace: whereami-frontend
+spec:
+  default:
+    config:
+      httpHealthCheck:
+        port: 8080
+        portSpecification: USE_FIXED_PORT
+        requestPath: /healthz
+      type: HTTP
+  targetRef:
+      group: net.gke.io
+      kind: ServiceImport
+      name: whereami-frontend
+      namespace: whereami-frontend
