@@ -7,4 +7,4 @@ paths: {}
 host: "frontend.endpoints.fleets-argocd-demo.cloud.goog"
 x-google-endpoints:
 - name: "frontend.endpoints.fleets-argocd-demo.cloud.goog"
-  target: "34.107.234.188"
+  target: "35.244.207.147"
