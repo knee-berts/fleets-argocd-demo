@@ -24,7 +24,7 @@ spec:
         # A source repo and path that the "backend" team has write access to. 
         repoURL: https://github.com/knee-berts/fleets-argocd-demo
         targetRevision: HEAD
-        path: teams/whereami/backend
+        path: teams/backend
       destination:
         server: '{{server}}'
         # Only syncing to the "webserver" fleet namespace.

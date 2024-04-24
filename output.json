@@ -1,0 +1,183 @@
+{
+  "bindings": [
+    {
+      "members": [
+        "principalSet://iam.googleapis.com/locations/global/workforcePools/okta-idp/group/team-backend",
+        "principalSet://iam.googleapis.com/locations/global/workforcePools/okta-idp/group/team-frontend"
+      ],
+      "role": "projects/fleets-argocd-demo/roles/teamproject"
+    },
+    {
+      "members": [
+        "serviceAccount:service-143611928672@gcp-sa-anthospolicycontroller.iam.gserviceaccount.com"
+      ],
+      "role": "roles/anthospolicycontroller.serviceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:service-143611928672@gcp-sa-artifactregistry.iam.gserviceaccount.com"
+      ],
+      "role": "roles/artifactregistry.serviceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:143611928672@cloudbuild.gserviceaccount.com"
+      ],
+      "role": "roles/cloudbuild.builds.builder"
+    },
+    {
+      "members": [
+        "serviceAccount:service-143611928672@gcp-sa-cloudbuild.iam.gserviceaccount.com"
+      ],
+      "role": "roles/cloudbuild.serviceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:fleets-argocd-demo.svc.id.goog[gke-mcs/gke-mcs-importer]"
+      ],
+      "role": "roles/compute.networkViewer"
+    },
+    {
+      "members": [
+        "serviceAccount:service-143611928672@compute-system.iam.gserviceaccount.com"
+      ],
+      "role": "roles/compute.serviceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:service-143611928672@gcp-sa-multiclusteringress.iam.gserviceaccount.com"
+      ],
+      "role": "roles/container.admin"
+    },
+    {
+      "members": [
+        "serviceAccount:argocd-fleet-admin@fleets-argocd-demo.iam.gserviceaccount.com",
+        "serviceAccount:fleets-argocd-demo.svc.id.goog[argocd/argocd-application-controller]",
+        "serviceAccount:fleets-argocd-demo.svc.id.goog[argocd/argocd-fleet-plugin]",
+        "serviceAccount:fleets-argocd-demo.svc.id.goog[argocd/argocd-server]"
+      ],
+      "role": "roles/container.developer"
+    },
+    {
+      "members": [
+        "serviceAccount:service-143611928672@container-engine-robot.iam.gserviceaccount.com"
+      ],
+      "role": "roles/container.serviceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:service-143611928672@containerregistry.iam.gserviceaccount.com"
+      ],
+      "role": "roles/containerregistry.ServiceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:143611928672-compute@developer.gserviceaccount.com",
+        "serviceAccount:143611928672@cloudservices.gserviceaccount.com"
+      ],
+      "role": "roles/editor"
+    },
+    {
+      "members": [
+        "serviceAccount:argocd-fleet-admin@fleets-argocd-demo.iam.gserviceaccount.com",
+        "serviceAccount:fleets-argocd-demo.svc.id.goog[argocd/argocd-application-controller]",
+        "serviceAccount:fleets-argocd-demo.svc.id.goog[argocd/argocd-fleet-plugin]",
+        "serviceAccount:fleets-argocd-demo.svc.id.goog[argocd/argocd-server]"
+      ],
+      "role": "roles/gkehub.gatewayEditor"
+    },
+    {
+      "members": [
+        "serviceAccount:service-143611928672@gcp-sa-gkehub.iam.gserviceaccount.com"
+      ],
+      "role": "roles/gkehub.serviceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:argocd-fleet-admin@fleets-argocd-demo.iam.gserviceaccount.com",
+        "serviceAccount:fleets-argocd-demo.svc.id.goog[argocd/argocd-application-controller]",
+        "serviceAccount:fleets-argocd-demo.svc.id.goog[argocd/argocd-fleet-plugin]",
+        "serviceAccount:fleets-argocd-demo.svc.id.goog[argocd/argocd-server]"
+      ],
+      "role": "roles/gkehub.viewer"
+    },
+    {
+      "members": [
+        "serviceAccount:fleets-argocd-demo.svc.id.goog[argocd/argocd-application-controller]",
+        "serviceAccount:fleets-argocd-demo.svc.id.goog[argocd/argocd-fleet-plugin]",
+        "serviceAccount:fleets-argocd-demo.svc.id.goog[argocd/argocd-server]"
+      ],
+      "role": "roles/iam.workloadIdentityUser"
+    },
+    {
+      "members": [
+        "principalSet://iam.googleapis.com/locations/global/workforcePools/okta-idp/group/team-backend",
+        "principalSet://iam.googleapis.com/locations/global/workforcePools/okta-idp/group/team-frontend"
+      ],
+      "role": "roles/monitoring.viewer"
+    },
+    {
+      "members": [
+        "serviceAccount:service-143611928672@gcp-sa-multiclusteringress.iam.gserviceaccount.com"
+      ],
+      "role": "roles/multiclusteringress.serviceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:service-143611928672@gcp-sa-mcmetering.iam.gserviceaccount.com"
+      ],
+      "role": "roles/multiclustermetering.serviceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:service-143611928672@gcp-sa-mcsd.iam.gserviceaccount.com"
+      ],
+      "role": "roles/multiclusterservicediscovery.serviceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:service-143611928672@gcp-sa-networkconnectivity.iam.gserviceaccount.com"
+      ],
+      "role": "roles/networkconnectivity.serviceAgent"
+    },
+    {
+      "members": [
+        "user:nickeberts@google.com",
+        "user:shumiao@google.com"
+      ],
+      "role": "roles/owner"
+    },
+    {
+      "members": [
+        "serviceAccount:service-143611928672@gcp-sa-pubsub.iam.gserviceaccount.com"
+      ],
+      "role": "roles/pubsub.serviceAgent"
+    },
+    {
+      "members": [
+        "principalSet://iam.googleapis.com/locations/global/workforcePools/okta-idp/group/team-frontend"
+      ],
+      "role": "roles/logging.viewAccessor",
+      "condition": {
+          "title": "Bucket reader condition example",
+          "description": "Grants logging.viewAccessor role to user principalSet://iam.googleapis.com/locations/global/workforcePools/okta-idp/group/team-frontend for the fleet-o11y-scope-team-frontend-k8s_container and fleet-o11y-scope-team-frontend-k8s_pod log view.",
+          "expression":
+            "resource.name == \"projects/fleets-argocd-demo/locations/global/buckets/fleet-o11y-scope-team-frontend/views/fleet-o11y-scope-team-frontend-k8s_container\" || resource.name == \"projects/fleets-argocd-demo/locations/global/buckets/fleet-o11y-scope-team-frontend/views/fleet-o11y-scope-team-frontend-k8s_pod\""
+      }
+    },
+    {
+      "members": [
+        "principalSet://iam.googleapis.com/locations/global/workforcePools/okta-idp/group/team-backend"
+      ],
+      "role": "roles/logging.viewAccessor",
+      "condition": {
+          "title": "Bucket reader condition example",
+          "description": "Grants logging.viewAccessor role to user principalSet://iam.googleapis.com/locations/global/workforcePools/okta-idp/group/team-backend for the fleet-o11y-scope-team-frontend-k8s_container and fleet-o11y-scope-team-frontend-k8s_pod log view.",
+          "expression":
+            "resource.name == \"projects/fleets-argocd-demo/locations/global/buckets/fleet-o11y-scope-team-frontend/views/fleet-o11y-scope-team-frontend-k8s_container\" || resource.name == \"projects/fleets-argocd-demo/locations/global/buckets/fleet-o11y-scope-team-frontend/views/fleet-o11y-scope-team-frontend-k8s_pod\""
+      }
+    }
+  ],    
+  "etag": "BwYW1pktw54=",
+  "version": 1
+}
