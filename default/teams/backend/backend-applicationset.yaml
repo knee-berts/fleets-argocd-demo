@@ -12,7 +12,7 @@ spec:
       input:
         parameters:
           fleetProjectNumber: "143611928672"
-          scopeID: "team-whereami"
+          scopeID: "team-backend"
       # The ApplicationSet controller polls the plugin every `requeueAfterSeconds` interval to detect changes.
       requeueAfterSeconds: 10
   template:

@@ -67,25 +67,27 @@ metadata:
   namespace: argocd
 spec:
   domains:
-    - argocd.example.com
+    - "argocd.endpoints.${PROJECT_ID}.cloud.goog"
 EOF
 
 gcloud compute addresses create argocd-ingress-ip --project ${PROJECT_ID}  --global --ip-version IPV4 
 export ARGOCD_IP=$(gcloud compute addresses describe argocd-ingress-ip --project ${PROJECT_ID} --global --format "value(address)") 
 echo ${ARGOCD_IP}
 
-cat <<EOF > ${WORKDIR}/dns-spec.yaml
+cat <<EOF > ${WORKDIR}/argo-dns-spec.yaml
 swagger: "2.0"
 info:
   description: "Cloud Endpoints DNS"
   title: "Cloud Endpoints DNS"
   version: "1.0.0"
 paths: {}
-host: "frontend.endpoints.${PROJECT_ID}.cloud.goog"
+host: "argocd.endpoints.${PROJECT_ID}.cloud.goog"
 x-google-endpoints:
-- name: "frontend.endpoints.${PROJECT_ID}.cloud.goog"
+- name: "argocd.endpoints.${PROJECT_ID}.cloud.goog"
   target: "${ARGOCD_IP}"
 EOF
+
+gcloud endpoints services deploy ${WORKDIR}/argo-dns-spec.yaml --project ${PROJECT_ID}
 
 kubectl apply -f - <<EOF
 apiVersion: networking.k8s.io/v1
@@ -99,7 +101,7 @@ metadata:
     networking.gke.io/v1beta1.FrontendConfig: argocd-frontend-config
 spec:
   rules:
-    - host: "frontend.endpoints.${PROJECT_ID}.cloud.goog"
+    - host: "argocd.endpoints.${PROJECT_ID}.cloud.goog"
       http:
         paths:
           - path: /
